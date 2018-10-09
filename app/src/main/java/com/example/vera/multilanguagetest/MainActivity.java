@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         int language = preferences.getInt("language", 0);
         //根据读取到的数据进行设置
         Resources resources = context.getResources();
-        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
         Configuration configuration = resources.getConfiguration();
         Locale userLocale = Locale.getDefault();
         switch (language){
@@ -85,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 configuration.setLocale(userLocale);
                 context.createConfigurationContext(configuration);
             } else {
+                DisplayMetrics displayMetrics = resources.getDisplayMetrics();
                 configuration.locale = userLocale;
                 resources.updateConfiguration(configuration, displayMetrics);
             }
